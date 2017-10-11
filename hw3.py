@@ -242,8 +242,20 @@ def max_sum_subarray(arr):
 #         Output:
 #             4
 #
-def max_sum_subrectangle(grid):
-    pass
+def max_sum_subrectangle(arr):
+    max = arr[0][0]
+    for i in range(len(arr)):
+        for j in range(len(arr) - i):
+            for m in range(len(arr[0])):
+                for n in range(len(arr[0]) - m):
+                    sum = 0
+                    for k in range(i + 1):
+                        for l in range(m + 1):
+                            sum += arr[j + k][n + l]
+                    if sum > max:
+                        max = sum
+
+    return max
 
 
 
